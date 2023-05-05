@@ -1,0 +1,605 @@
+/* ヘッダー */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header-logo {
+  width: 200px;
+}
+
+@media screen and (max-width:780px) {
+  #header-logo {
+    width: 100px;
+  }
+}
+
+#header-right {
+  margin-right: 30px;
+}
+
+/* 言語切り替え */
+#language-switch li {
+  display: inline-block;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.Japanese{
+  font-family: 'Zen Maru Gothic', sans-serif;
+}
+
+.English,.home{
+  font-family: 'Ysabeau', sans-serif;
+}
+
+#language-switch li:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: black;
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+#language-switch li:active {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: blueviolet
+}
+
+.nav>li {
+  color: white;
+  font-size: 15px;
+  margin: 3px;
+}
+
+#humburger {
+  display: none;
+}
+
+@media screen and (max-width:780px) {
+  #language-switch {
+    display: none;
+  }
+
+  /* ハンバーガーメニュー */
+  #humburger {
+    display: block;
+  }
+
+  #g-nav {
+    /*position:fixed;にし、z-indexの数値を大きくして前面にスライド表示*/
+    position: fixed;
+    z-index: 999;
+    /*ナビのスタート位置と形状*/
+    top: 0;
+    right: -120%;
+    width: 100%;
+    height: 100vh;
+    /*ナビの高さ*/
+    background: white;
+    background-color: rgba(255, 255, 255, 0.8);
+    /*動き*/
+    transition: all 1.5s;
+  }
+
+  /*アクティブクラスがついた場合、位置を0に*/
+  #g-nav.panelactive {
+    right: 0;
+  }
+
+  /*ナビゲーションの縦スクロール*/
+  #g-nav.panelactive #g-nav-list {
+    /*ナビの数が増えた場合縦スクロール*/
+    position: fixed;
+    z-index: 999;
+    width: 50%;
+    height: 50vh;
+    /*表示する高さ*/
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /*ナビゲーション*/
+  #g-nav ul {
+    /*ナビゲーション天地中央揃え*/
+    background-color: #55acee;
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /*リストのレイアウト設定*/
+  #g-nav li {
+    list-style: none;
+    text-align: center;
+    margin: 30px;
+  }
+
+  #g-nav li a {
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: bold;
+  }
+
+  /* 子要素のリストの設定 */
+  #parentlist {
+    position: relative;
+    height: 90%;
+  }
+
+
+  .childlist {
+    position: absolute;
+    width: 100%;
+    /* 子要素を絶対的に位置指定 */
+    top: 100%;
+    /* 親要素の下に表示 */
+    left: 0;
+    /* 親要素の左端に表示 */
+    display: none;
+    /* 初期状態は非表示 */
+  }
+
+
+  /*========= ボタンのためのCSS ===============*/
+  .openbtn {
+    position: fixed;
+    z-index: 9999;
+    /*ボタンを最前面に*/
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+  }
+
+  /*×に変化*/
+  .openbtn span {
+    display: inline-block;
+    transition: all .4s;
+    position: absolute;
+    left: 14px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #666;
+    width: 45%;
+  }
+
+  .openbtn span:nth-of-type(1) {
+    top: 15px;
+  }
+
+  .openbtn span:nth-of-type(2) {
+    top: 23px;
+  }
+
+  .openbtn span:nth-of-type(3) {
+    top: 31px;
+  }
+
+  .openbtn.active span:nth-of-type(1) {
+    top: 18px;
+    left: 18px;
+    transform: translateY(6px) rotate(-45deg);
+    width: 30%;
+  }
+
+  .openbtn.active span:nth-of-type(2) {
+    opacity: 0;
+  }
+
+  .openbtn.active span:nth-of-type(3) {
+    top: 30px;
+    left: 18px;
+    transform: translateY(-6px) rotate(45deg);
+    width: 30%;
+  }
+}
+
+/*========= 検索窓のためのCSS ===============*/
+
+/*検索窓のエリア*/
+#search-wrap {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 10px;
+}
+
+/*テキスト入力input設定*/
+#search-text {
+  width: 250px;
+  /*テキスト入力エリアが伸びる前の横幅*/
+  height: 10px;
+  padding: 20px;
+  border: none;
+  background: #fff url("https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/7-2-3/img/icon_search.svg") no-repeat 17px center;
+  /*虫眼鏡アイコンを背景に表示*/
+  background-size: 18px 18px;
+  transition: all 0.5s;
+  /*transitionを使ってスムースに伸ばす*/
+  outline: none;
+  cursor: pointer;
+  /*カーソルを指マークに*/
+}
+
+/*テキスト入力inputにフォーカスした時の形状*/
+#search-text:focus {
+  width: 250px;
+  /*テキスト入力エリアが伸びる後の横幅*/
+  padding: 20px 0 20px 60px;
+  box-shadow: 0 2px rgba(6, 0, 1, .26);
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+
+.wrap {
+  background: url(../img/fill\ in\ form.jpeg);
+  /* 画像をスクロール時に固定する */
+  min-height: 20vh;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  /* margin: 0; 
+    padding: 0;  */
+}
+
+
+.top {
+  /* background-size: cover;
+    background-position: center; */
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  /* テキストの色を指定 */
+  text-align: center;
+}
+
+#subtitle {
+  font-size: 20px;
+  margin-bottom: 30px;
+  font-family: 'Noto Sans Symbols', sans-serif;
+}
+
+@media screen and (max-width:780px) {
+  #subtitle {
+    font-size: 18px;
+  }
+}
+
+#maintitle {
+  font-size: 50px;
+  font-family: "Quicksand", cursive;
+}
+
+@media screen and (max-width:780px) {
+  #maintitle {
+    font-size: 30px;
+  }
+}
+
+.middle {
+  font-size: 25px;
+  color: rgba(60, 42, 196, 0.382);
+  text-align: center;
+  line-height: 50px;
+  margin: 100px;
+}
+
+@media screen and (max-width:780px) {
+  .middle {
+    font-size: 15px;
+    line-height: 25px;
+    margin: 50px;
+  }
+}
+
+.bottom {
+  text-align: center;
+}
+
+.next {
+  text-align: center;
+}
+
+.under {
+  font-size: 15px;
+  color: rgba(60, 42, 196, 0.382);
+  border-bottom: dotted 2px rgba(60, 42, 196, 0.382);
+}
+
+/* 入力フォーム */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #333;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+}
+
+.contact {
+  width: 960px;
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.contact-ttl {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.contact-table {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+}
+
+.contact-item,
+.contact-body {
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.contact-item {
+  text-align: left;
+  width: 30%;
+  background-color: #eee;
+}
+
+.contact-body {
+  width: 70%;
+}
+
+.form-text {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  max-width: 400px;
+}
+
+.contact-sex + .contact-sex {
+  margin-left: 10px;
+}
+
+.contact-sex-txt {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.form-select {
+  width: 180px;
+  height: 40px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-skill {
+  display: block;
+}
+
+.contact-skill + .contact-skill {
+  margin-top: 10px;
+}
+
+.contact-skill-txt {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  height: 200px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.contact-submit {
+  width: 250px;
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+  display: block;
+  margin: 0 auto;
+  font-size: 16px;
+  padding: 15px;
+  border-radius: 100vh;
+  border: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+}
+
+
+.bottom {
+  text-align: center;
+}
+
+.under {
+  font-size: 15px;
+  color: rgba(60, 42, 196, 0.382);
+  border-bottom: dotted 2px rgba(60, 42, 196, 0.382);
+}
+
+
+
+
+
+
+#bottom-line {
+  background-image: url(../img/Contact.png);
+  min-height: 50%;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  padding-bottom: 50px;
+}
+
+#bottom-text {
+  font-size: 50px;
+  font-weight: 100;
+  color: white;
+  padding: 100px;
+  text-align: center;
+}
+
+@media screen and (max-width:780px) {
+  #bottom-text {
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    text-align: center;
+  }
+}
+
+/* ボタンの装飾 */
+#button001 a {
+  background: white;
+  border-radius: 50px;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 180px;
+  padding: 20px 25px;
+  color: #313131;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+}
+
+#button001 a:hover {
+  background: #313131;
+  color: white;
+}
+
+#button001 a:after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  /* border-top: 3px solid #313131;
+    border-right: 3px solid #313131;
+    transform: rotate(45deg) translateY(-50%); */
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  border-radius: 20px;
+  transition: 0.3s ease-in-out;
+}
+
+#button001 a:hover:after {
+  border-color: #FFF;
+}
+
+/* フッター */
+footer {
+  text-align: center;
+  background-color: rgba(52, 15, 111, 0.591);
+  padding: 20px;
+}
+
+#footer {
+  margin-bottom: 10px;
+}
+
+#sns {
+  display: flex;
+  justify-content: center;
+}
+
+/* SNSアイコン */
+
+#follow-me {
+  list-style: none;
+  margin: 0 0 -8px;
+  overflow: hidden;
+  padding: 0;
+}
+
+#follow-me li {
+  float: left;
+  margin: 0 8px 8px 0;
+  padding: 0;
+}
+
+#follow-me li a::before {
+  background-color: transparent;
+  -webkit-border-radius: 2px;
+  border-radius: 50px;
+  color: white;
+  display: inline-block;
+  font-family: FontAwesome;
+  font-size: 15px;
+  height: 44px;
+  /* Button height */
+  line-height: 44px;
+  /* Button height */
+  -webkit-transition: all .3s ease;
+  transition: all .5s ease;
+  text-align: center;
+  width: 44px;
+  /* Button width */
+}
+
+#follow-me li a:hover::before {
+    color: white;
+}
+
+#follow-me li a[href*="facebook.com"]::before {
+  content: "\f09a";
+}
+
+#follow-me li a[href*="instagram.com"]::before {
+  content: "\f16d";
+}
+
+#follow-me li a[href*="tumblr.com"]::before {
+  content: "\f173";
+}
+
+#follow-me li a[href*="twitter.com"]::before {
+  content: "\f099";
+}
+
+#follow-me li a[href*="facebook.com"]:hover::before {
+  background-color: #315096;
+}
+
+#follow-me li a[href*="instagram.com"]:hover::before {
+  background: #f77737;
+}
+
+#follow-me li a[href*="tumblr.com"]:hover::before {
+  background-color: #36465d;
+}
+
+#follow-me li a[href*="twitter.com"]:hover::before {
+  background-color: #55acee;
+}

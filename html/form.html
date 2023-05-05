@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIYUITO</title>
+  <link rel="stylesheet" href="../assets/css/reset.css">
+  <link rel="stylesheet" href="../assets/css/form.css">
+  <!-- 英語フォント -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Noto+Sans+Symbols:wght@700&family=Noto+Serif:wght@700&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=PT+Serif&family=Quicksand:wght@300&family=Work+Sans:wght@500&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Noto+Serif:wght@700&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Noto+Sans+Symbols:wght@700&family=Noto+Serif:wght@700&family=Ysabeau:wght@300&display=swap"
+    rel="stylesheet">
+  <!-- 日本語フォント -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@300&family=Noto+Sans+Symbols:wght@700&family=Noto+Serif:wght@700&family=Ysabeau:wght@300&family=Zen+Maru+Gothic&display=swap"
+    rel="stylesheet">
+  <!-- SNSアイコン -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <div class="wrap">
+    <!-- ヘッダー -->
+    <header>
+      <div>
+        <a href="./index.html"><img id="header-logo" src="../assets/img/Logo White.png" alt=""></a>
+      </div>
+      <!-- 言語切り替え -->
+      <div id="header-right">
+        <ul id="language-switch">
+          <li class="Japanese">日本語</li>
+          <li class="English"> <a href="./index.html"> English</a></li>
+          <li class="home"> <a href="./index.html"> Home</a></li>
+        </ul>
+
+        <!-- ハンバーガーメニュー -->
+        <div id="humburger">
+          <div class="openbtn">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+          </div>
+          <nav id="h-nav">
+            <ul id="parentlist">
+              <li>
+                <form role="search" method="get" action="">
+                  <input id="search-text" type="search" value="" name="">
+                </form>
+              </li>
+              <li class="home"> <a href="./index.html">Home</a> </li>
+              <li>Language
+                <ul class="childlist">
+                  <li class="Japanese">日本語</li>
+                  <li class="English">English</li>
+                </ul>
+              </li>
+              <li>Services
+                <ul class="childlist">
+                  <li>Nutrition Counselling</li>
+                  <li>Group Programs</li>
+                  <li>Ebooks</li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- タイトル -->
+    <div class="form">
+        <div class="top">
+            <h1 id="maintitle">Get In Touch</h1>
+        </div>
+    </div>
+</div>
+<div class="contact">
+    <h1 class="contact-ttl">Contact</h1>
+
+    <form action="">
+        <table class="contact-table">
+            <tr>
+                <th class="contact-item">Name</th>
+                <td class="contact-body">
+                    <input type="text" name="名前" class="form-text" />
+                </td>
+            </tr>
+            <tr>
+                <th class="contact-item">Gender</th>
+                <td class="contact-body">
+                    <label class="contact-sex">
+                        <input type="radio" name="性別" />
+                        <span class="contact-sex-txt">Male</span>
+                    </label>
+                    <label class="contact-sex">
+                        <input type="radio" name="性別" />
+                        <span class="contact-sex-txt">Female</span>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <th class="contact-item">Mail</th>
+                <td class="contact-body">
+                    <input type="email" name="メール" class="form-text" />
+                </td>
+            </tr>
+            <tr>
+                <th class="contact-item">Phone Number</th>
+                <td class="contact-body">
+                    <input type="tel" name="電話" class="form-text" />
+                </td>
+            </tr>
+            <tr>
+                <th class="contact-item">Occupation</th>
+                <td class="contact-body">
+                    <select name="職業" class="form-select">
+                        <option>select</option>
+                        <option>text</option>
+                        <option>text</option>
+                        <option>text</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="contact-item">Point</th>
+                <td class="contact-body">
+                    <label class="contact-skill">
+                        <input type="checkbox" name="スキル" />
+                        <span class="contact-skill-txt">text</span>
+                    </label>
+                    <label class="contact-skill">
+                        <input type="checkbox" name="スキル" />
+                        <span class="contact-skill-txt">text</span>
+                    </label>
+                    <label class="contact-skill">
+                        <input type="checkbox" name="スキル" />
+                        <span class="contact-skill-txt">text</span>
+                    </label>
+                    <label class="contact-skill">
+                        <input type="checkbox" name="スキル" />
+                        <span class="contact-skill-txt">other</span>
+                    </label>
+                </td>
+            </tr>
+            <tr>
+                <th class="contact-item">Details</th>
+                <td class="contact-body">
+                    <textarea name="details" class="form-textarea"></textarea>
+                </td>
+            </tr>
+        </table>
+
+        <input class="contact-submit" type="submit" value="send" />
+    </form>
+</div>
+
+
+<footer>
+    <div id="footer">&copy;2023 Miyu Ito</div>
+    <div id="sns">
+      <ul id="follow-me">
+        <li><a href="https://twitter.com"></a></li>
+        <li><a href="https://www.facebook.com"></a></li>
+        <li><a href="https://www.instagram.com"></a></li>
+        <li><a href="https://www.tumblr.com"></a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="../assets/js/script.js"></script>
+</body>
+
+</html>
